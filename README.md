@@ -58,8 +58,7 @@ As the name alludes, BCR intends to be a basic as possible. The project will hav
           # If unrooted, install BCR as both a user app and a system app:
           pm install /system/priv-app/com.chiller3.bcr/app-release.apk
           ```
-        * **NOTE**: If the custom firmware's `system` partition is formatted with `erofs`, then the filesystem is read-only and it is not possible to use this method.
-        * Manually extracting the files from the `system/` folder in the zip will also work as long as the files have `644` permissions and the `u:object_r:system_file:s0` SELinux label.
+        * Manually extracting the files from the `system/` folder in the zip will also work as long as files have `644` permissions, directories have `755` permissions, and both have the `u:object_r:system_file:s0` SELinux label. This can be done by modifying the `system` image on a PC and then reflashing it. This method is required if `system` is formatted as erofs since erofs is always read-only.
 
 3. Reboot and open BCR.
 
